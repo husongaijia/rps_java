@@ -6,8 +6,6 @@ import static org.junit.Assert.assertEquals;
 
 public class RpsTest {
     private Rps rps;
-    private String p1;
-    private String p2;
 
     @Before
     public void setUp() {
@@ -15,115 +13,72 @@ public class RpsTest {
     }
 
     @Test
-    public void p1がrockでp2がpaperのときp2Winsを返す() {
-        p1 = "rock";
-        p2 = "paper";
+    public void p1がrockでp2がpaperのときp2が勝つ() {
+        String result = rps.play(Hand.ROCK.getString(), Hand.PAPER.getString());
 
 
-        String result = rps.play(p1, p2);
-
-
-        assertEquals(result, "p2Wins");
-
+        assertEquals(result, Result.P2WINS.getString());
     }
 
     @Test
-    public void p1がrockでp2がrockのときtieを返す() {
-        p1 = "rock";
-        p2 = "rock";
+    public void p1がrockでp2がrockのときあいこ() {
+        String result = rps.play(Hand.ROCK.getString(), Hand.ROCK.getString());
 
-        String result = rps.play(p1, p2);
-
-        assertEquals(result, "tie");
-
+        assertEquals(result, Result.DRAW.getString());
     }
 
     @Test
-    public void p1がrockでp2がscissorsのときp1Winsを返す() {
-        p1 = "rock";
-        p2 = "scissors";
+    public void p1がrockでp2がscissorsのときp1が勝つ() {
+        String result = rps.play(Hand.ROCK.getString(), Hand.SCISSORS.getString());
 
-        String result = rps.play(p1, p2);
-
-        assertEquals(result, "p1Wins");
-
+        assertEquals(result, Result.P1WINS.getString());
     }
 
     @Test
-    public void p1がpaperでp2がpaperのときtieを返す() {
-        p1 = "paper";
-        p2 = "paper";
+    public void p1がpaperでp2がpaperのときあいこ() {
+        String result = rps.play(Hand.PAPER.getString(), Hand.PAPER.getString());
 
 
-        String result = rps.play(p1, p2);
-
-
-        assertEquals(result, "tie");
-
+        assertEquals(result, Result.DRAW.getString());
     }
 
     @Test
-    public void p1がpaperでp2がrockのときp1Winsを返す() {
-        p1 = "paper";
-        p2 = "rock";
+    public void p1がpaperでp2がrockのときp1が勝つ() {
+        String result = rps.play(Hand.PAPER.getString(), Hand.ROCK.getString());
 
 
-        String result = rps.play(p1, p2);
-
-
-        assertEquals(result, "p1Wins");
-
+        assertEquals(result, Result.P1WINS.getString());
     }
 
     @Test
-    public void p1がpaperでp2がscissorsのときp2Winsを返す() {
-        p1 = "paper";
-        p2 = "scissors";
+    public void p1がpaperでp2がscissorsのときp2が勝つ() {
+        String result = rps.play(Hand.PAPER.getString(), Hand.SCISSORS.getString());
 
 
-        String result = rps.play(p1, p2);
-
-
-        assertEquals(result, "p2Wins");
-
+        assertEquals(result, Result.P2WINS.getString());
     }
 
     @Test
-    public void p1がscissorsでp2がpaperのときp1Winsを返す() {
-        p1 = "scissors";
-        p2 = "paper";
+    public void p1がscissorsでp2がpaperのときp1が勝つ() {
+        String result = rps.play(Hand.SCISSORS.getString(), Hand.PAPER.getString());
 
 
-        String result = rps.play(p1, p2);
-
-
-        assertEquals(result, "p1Wins");
-
+        assertEquals(result, Result.P1WINS.getString());
     }
 
     @Test
-    public void p1がscissorsでp2がrockのときp2Winsを返す() {
-        p1 = "scissors";
-        p2 = "rock";
+    public void p1がscissorsでp2がrockのときp2が勝つ() {
+        String result = rps.play(Hand.SCISSORS.getString(), Hand.ROCK.getString());
 
 
-        String result = rps.play(p1, p2);
-
-
-        assertEquals(result, "p2Wins");
-
+        assertEquals(result, Result.P2WINS.getString());
     }
 
     @Test
-    public void p1がscissorsでp2がscissorsのときtieを返す() {
-        p1 = "scissors";
-        p2 = "scissors";
+    public void p1がscissorsでp2がscissorsのときあいこ() {
+        String result = rps.play(Hand.SCISSORS.getString(), Hand.SCISSORS.getString());
 
 
-        String result = rps.play(p1, p2);
-
-
-        assertEquals(result, "tie");
-
+        assertEquals(result, Result.DRAW.getString());
     }
 }
